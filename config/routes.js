@@ -9,7 +9,13 @@ module.exports = server => {
     server.get("/notes", getNotes);
     server.put("/updateNote/:id", updateNote)
     server.delete("/deleteNote/:id",deleteNote)
+    server.get('/',viewServer)
 };
+
+function viewServer(req,res) {
+res.status(200).json({api:'running'})
+
+}
 
 function addNote(req, res) {
     const notes = req.body;
